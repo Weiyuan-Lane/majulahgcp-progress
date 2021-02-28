@@ -157,7 +157,7 @@ export default class QwiklabsHelper {
         const profileWrapper = profileCollection[0];
         const avatarCollection = profileWrapper.getElementsByTagName('ql-avatar');
 
-        if (avatarCollection.length !== 1) {
+        if (avatarCollection.length === 0) {
             return voidUser;
         }
 
@@ -171,7 +171,7 @@ export default class QwiklabsHelper {
         const nameElement = nameLines[0];
 
         const profileLines = profileWrapper.getElementsByClassName('ql-body-1');
-        if (profileLines.length !== 1) {
+        if (profileLines.length === 0) {
             return voidUser;
         }
 
