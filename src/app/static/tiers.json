@@ -2,13 +2,13 @@
     {
         "title": "Tier 1",
         "questRequirements": 6,
-        "rewards": "A cap, 15.6'' waterproof laptop pouch and stainless steel coffee mug",
+        "rewards": "Smart LED display thermos flask and an apron",
         "rewardsUrl": "./assets/tier_one.png"
     },
     {
         "title": "Tier 2",
         "questRequirements": 12,
-        "rewards": "A cap, 15.6'' waterproof laptop pouch, stainless steel coffee mug and a hoodie",
+        "rewards": "Smart LED display thermos flask, Apron, Polo T Shirt and a Hipster backpack",
         "rewardsUrl": "./assets/tier_two.png"
     }
 ]

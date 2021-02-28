@@ -2,6 +2,7 @@ $max-image-width: 150px;
 
 .progression-card {
     text-align: left;
+    height: calc(100% - 15px);
 }
 
 .progression-card-completed {

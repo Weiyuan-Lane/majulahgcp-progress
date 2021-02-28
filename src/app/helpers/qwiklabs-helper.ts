@@ -114,21 +114,23 @@ export default class QwiklabsHelper {
     }
 
     private static getProfileBadgesFrom(doc: Document): QwiklabsProfileBadge[] {
-        const mainWrapper = doc.getElementById('main-wrapper');
-        const profileBadgeCollection = mainWrapper.getElementsByClassName('public-profile__badge');
-
+        const mainWrappers = doc.getElementsByClassName('profile-badges');
+        if (mainWrappers.length !== 1) {
+            return [];
+        }
+        const mainWrapper = mainWrappers[0];
+        const profileBadgeCollection = mainWrapper.getElementsByTagName('ql-badge');
         const profileBadges: QwiklabsProfileBadge[] = [];
 
         for (let i = 0; i < profileBadgeCollection.length; i++) {
-            const profileBadgeElements = profileBadgeCollection[i].getElementsByTagName('div');
-            if (profileBadgeElements.length !== 3) {
-                continue
-            }
+            const profileBadgePayloadStr = profileBadgeCollection[i].attributes['badge'].value;
+            const profileBadgePayload = JSON.parse(profileBadgePayloadStr);
 
-            const title = profileBadgeElements[1].innerText;
+            const title = profileBadgePayload['title'];
             const parsedTitle = title.replace(/\r|\n/g, '');
-            const earnedDateStr = profileBadgeElements[2].innerText;
-            const parsedDateStr = earnedDateStr.replace(/\r|\n|Earned/g, '');
+
+            const earnedDateStr = profileBadgePayload['completedAt'];
+            const parsedDateStr = earnedDateStr.replace(/\r|\n/g, '');
 
             profileBadges.push({
                 title: parsedTitle,
@@ -141,8 +143,7 @@ export default class QwiklabsHelper {
     }
 
     private static getProfileUserFrom(doc: Document): QwiklabsProfileUser {
-        const mainWrapper = doc.getElementById('main-wrapper');
-        const profileCollection = mainWrapper.getElementsByClassName('public-profile__hero')
+        const profileCollection = doc.getElementsByClassName('text--center');
         const voidUser = {
             name: '',
             imageUrl: '',
@@ -154,21 +155,27 @@ export default class QwiklabsHelper {
         }
 
         const profileWrapper = profileCollection[0];
-        const avatarCollection = profileWrapper.getElementsByClassName('avatar');
+        const avatarCollection = profileWrapper.getElementsByTagName('ql-avatar');
 
-        if (avatarCollection.length === 0) {
+        if (avatarCollection.length !== 1) {
             return voidUser;
         }
 
         const avatarElement = avatarCollection[0];
-        const profileLines = profileWrapper.getElementsByClassName('l-mbm');
+        const nameLines = profileWrapper.getElementsByClassName('ql-headline-1');
 
-        if (profileLines.length < 1) {
+        if (nameLines.length === 0) {
             return voidUser;
         }
 
-        const nameElement = profileLines[0];
-        const descriptionElement = profileLines[1];
+        const nameElement = nameLines[0];
+
+        const profileLines = profileWrapper.getElementsByClassName('ql-body-1');
+        if (profileLines.length !== 1) {
+            return voidUser;
+        }
+
+        const descriptionElement = profileLines[0];
 
         const name = (nameElement as HTMLElement).innerText;
         const parsedName = name.replace(/\r|\n/g, '');
@@ -177,7 +184,7 @@ export default class QwiklabsHelper {
         let parsedDescription = description.replace(/(^(\r|\n))|((\r|\n)$)/g, '');
         parsedDescription = parsedDescription.replace(/\r|\n/g, ' ');
 
-        const imageSrc = (avatarElement as HTMLImageElement).src;
+        const imageSrc = (avatarElement as HTMLElement).attributes['src'] ? (avatarElement as HTMLElement).attributes['src'].value : '';
 
         return {
             name: parsedName,
