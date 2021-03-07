@@ -6,6 +6,7 @@ import {
 } from  '@app/types/qwiklabs';
 import QuestBadges from '@app/static/quests.json';
 import Campaign from '@app/static/campaign.json';
+import { nextTick } from 'process';
 
 const HTTP_PROTOCOL = 'http';
 const HTTPS_PROTOCOL = 'https';
@@ -119,17 +120,28 @@ export default class QwiklabsHelper {
             return [];
         }
         const mainWrapper = mainWrappers[0];
-        const profileBadgeCollection = mainWrapper.getElementsByTagName('ql-badge');
+        const profileBadgeCollection = mainWrapper.getElementsByClassName('profile-badge');
         const profileBadges: QwiklabsProfileBadge[] = [];
 
+        const earnedStr = 'Earned ';
         for (let i = 0; i < profileBadgeCollection.length; i++) {
-            const profileBadgePayloadStr = profileBadgeCollection[i].attributes['badge'].value;
-            const profileBadgePayload = JSON.parse(profileBadgePayloadStr);
+            const titleBody = profileBadgeCollection[i].getElementsByClassName('ql-subhead-1')
+            if (titleBody.length === 0) {
+                continue;
+            }
 
-            const title = profileBadgePayload['title'];
+            const titleBodyElement = titleBody[0] as HTMLElement;
+            const title = titleBodyElement.innerText;
             const parsedTitle = title.replace(/\r|\n/g, '');
 
-            const earnedDateStr = profileBadgePayload['completedAt'];
+            const earnedDateBody = profileBadgeCollection[i].getElementsByClassName('ql-body-2')
+            if (earnedDateBody.length === 0) {
+                continue;
+            }
+            const earnedDateBodyElement = earnedDateBody[0] as HTMLElement;
+            const foundPrefixIndex = earnedDateBodyElement.innerText.indexOf(earnedStr);
+
+            const earnedDateStr = foundPrefixIndex >= 0 ? earnedDateBodyElement.innerText.slice(foundPrefixIndex+earnedStr.length) : earnedDateBodyElement.innerText;
             const parsedDateStr = earnedDateStr.replace(/\r|\n/g, '');
 
             profileBadges.push({
