@@ -9,7 +9,7 @@
     { "title": "Cloud Architecture: Design, Implement, and Manage", "image": "./assets/eight.png", "link": "https://google.qwiklabs.com/quests/124" },
     { "title": "Secure Workloads in Google Kubernetes Engine", "image": "./assets/nine.png", "link": "https://www.qwiklabs.com/quests/142" },
     { "title": "Deploy to Kubernetes in Google Cloud", "image": "./assets/ten.png", "link": "https://google.qwiklabs.com/quests/116" },
-    { "title": "Optimize Costs for Google Kubernetes Engine ", "image": "./assets/eleven.png", "link": "https://www.qwiklabs.com/quests/157" },
+    { "title": "Optimize Costs for Google Kubernetes Engine", "image": "./assets/eleven.png", "link": "https://www.qwiklabs.com/quests/157" },
     { "title": "Build a Website on Google Cloud", "image": "./assets/twelve.png", "link": "https://google.qwiklabs.com/quests/115" },
     { "title": "Getting Started with Go on Google Cloud", "image": "./assets/thirteen.png", "link": "https://www.qwiklabs.com/quests/129?" },
     { "title": "Serverless Firebase Development", "image": "./assets/fourteen.png", "link": "https://www.qwiklabs.com/quests/153" },
