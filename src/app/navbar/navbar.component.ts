@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QwiklabsProfileLinkService } from '@app/services/qwiklabs-profile-link.service';
 import { FormControl, Validators, AbstractControl } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 import QwiklabsHelper from '@app/helpers/qwiklabs-helper';
 
 @Component({
@@ -13,9 +14,16 @@ export class NavbarComponent implements OnInit {
   public linkFormControl: FormControl;
 
   private _linkService: QwiklabsProfileLinkService;
+  private _route: ActivatedRoute;
+  private _router: Router;
 
-  constructor(linkService: QwiklabsProfileLinkService) { 
+  constructor(
+    route: ActivatedRoute,
+    router: Router,
+    linkService: QwiklabsProfileLinkService) { 
     this._linkService = linkService;
+    this._route = route;
+    this._router = router;
   }
 
   linkValidator (control: AbstractControl): {[key: string]: any} | null {
@@ -48,6 +56,13 @@ export class NavbarComponent implements OnInit {
   }
 
   submitLink(): void {
-    this._linkService.setProfileLink(this.profileSearchText);
+    this._router.navigate([], {
+      relativeTo: this._route,
+      queryParams: {
+        link: this.profileSearchText,
+      },
+      queryParamsHandling: 'merge',
+      skipLocationChange: false,
+    });
   }
 }

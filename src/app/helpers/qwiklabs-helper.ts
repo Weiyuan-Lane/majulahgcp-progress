@@ -10,7 +10,7 @@ import { nextTick } from 'process';
 
 const HTTP_PROTOCOL = 'http';
 const HTTPS_PROTOCOL = 'https';
-const PROFILE_LINK_REGEX = /^(?:(?:https|http)\:\/\/|)(?:www|google)\.qwiklabs\.com\/public_profiles\/[a-zA-Z0-9-]+$/
+const PROFILE_LINK_REGEX = /^(?:(?:https|http)\:\/\/|)(((?:www|google)\.qwiklabs\.com)|(www\.cloudskillsboost\.google))\/public_profiles\/[a-zA-Z0-9-]+$/
 const CORS_PROXY = 'https://weiyuan-cors-anywhere.herokuapp.com';
 
 const FROM_TIME = new Date(Campaign.from);
@@ -197,7 +197,6 @@ export default class QwiklabsHelper {
         parsedDescription = parsedDescription.replace(/\r|\n/g, ' ');
 
         const imageSrc = (avatarElement as HTMLElement).attributes['src'] ? (avatarElement as HTMLElement).attributes['src'].value : '';
-
         return {
             name: parsedName,
             imageUrl: imageSrc,

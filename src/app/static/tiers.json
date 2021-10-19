@@ -2,13 +2,13 @@
     {
         "title": "Tier 1",
         "questRequirements": 6,
-        "rewards": "Smart LED display thermos flask and an apron",
+        "rewards": "A T-shirt, Cap, and Tote Bag",
         "rewardsUrl": "./assets/tier_one.png"
     },
     {
         "title": "Tier 2",
-        "questRequirements": 12,
-        "rewards": "Smart LED display thermos flask, Apron, Polo T Shirt and a Hipster backpack",
+        "questRequirements": 14,
+        "rewards": "A T-shirt, Cap, and Tote Bag, and Backpack",
         "rewardsUrl": "./assets/tier_two.png"
     }
 ]

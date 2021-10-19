@@ -16,8 +16,11 @@ export class ProgressionTierComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.ngOnChanges();
+  }
+
+  ngOnChanges(): void {
     this.completed = this.completedBadges.length >= this.tier.questRequirements;
     this.percentage = Math.ceil(this.completedBadges.length / this.tier.questRequirements * 100);
   }
-
 }
