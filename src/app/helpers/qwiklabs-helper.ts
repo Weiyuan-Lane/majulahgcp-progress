@@ -61,13 +61,12 @@ export default class QwiklabsHelper {
                 completedBadges.push(questBadge);
             }
         })
-
         return completedBadges;
     }
 
     static getCompletedBadgesInCampaignTimeRange(completedProfileBadges: QwiklabsProfileBadge[]): QwiklabsQuestBadge[] {
         const timeRangedBadges: QwiklabsProfileBadge[] = completedProfileBadges.filter((completedProfileBadge) => {
-            return completedProfileBadge.earnedDate > FROM_TIME && completedProfileBadge.earnedDate <= TO_TIME;
+            return completedProfileBadge.earnedDate >= FROM_TIME && completedProfileBadge.earnedDate <= TO_TIME;
         });
 
         const completedBadges = this.getCompletedBadges(timeRangedBadges);

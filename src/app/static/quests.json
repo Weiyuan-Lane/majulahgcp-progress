@@ -7,13 +7,13 @@
   { "title": "Engineer Data in Google Cloud", "link": "https://www.qwiklabs.com/quests/132", "image": "./assets/six.png" },
   { "title": "Integrate with Machine Learning APIs", "link": "https://google.qwiklabs.com/quests/136", "image": "./assets/seven.png" },
   { "title": "BigQuery Basics for Data Analysts", "link": "https://google.qwiklabs.com/quests/69", "image": "./assets/eight.png" },
-  { "title": "BigQuery for Marketing Analysts ", "link": "https://google.qwiklabs.com/quests/70", "image": "./assets/nine.png" },
+  { "title": "BigQuery for Marketing Analysts", "link": "https://google.qwiklabs.com/quests/70", "image": "./assets/nine.png" },
   { "title": "Data Catalog Fundamentals", "link": "https://google.qwiklabs.com/quests/134", "image": "./assets/ten.png" },
   { "title": "Building Codeless pipelines on Cloud Data Fusion", "link": "https://google.qwiklabs.com/quests/130", "image": "./assets/eleven.png" },
   { "title": "Data Science on Google Cloud", "link": "https://google.qwiklabs.com/quests/43", "image": "./assets/twelve.png" },
   { "title": "Scientific Data Processing", "link": "https://google.qwiklabs.com/quests/28", "image": "./assets/thirteen.png" },
   { "title": "Data Engineering", "link": "https://google.qwiklabs.com/quests/25", "image": "./assets/fourteen.png" },
   { "title": "Building Advanced Codeless pipelines on Cloud Data Fusion", "link": "https://google.qwiklabs.com/quests/131", "image": "./assets/fifteen.png" },
-  { "title": "NCAA® March Madness®: Bracketology with Google Cloud ", "link": "https://google.qwiklabs.com/quests/58", "image": "./assets/sixteen.png" },
+  { "title": "NCAA® March Madness®: Bracketology with Google Cloud", "link": "https://google.qwiklabs.com/quests/58", "image": "./assets/sixteen.png" },
   { "title": "Applied Data: Blockchain", "link": "https://google.qwiklabs.com/quests/101", "image": "./assets/seventeen.png" }
 ]
