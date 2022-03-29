@@ -2,13 +2,13 @@
     {
         "title": "Tier 1",
         "questRequirements": 6,
-        "rewards": "A T-shirt, Cap, Tote Bag, and Stickers",
+        "rewards": "A T-shirt, laptop stand, and sticker",
         "rewardsUrl": "./assets/tier_one.jpeg"
     },
     {
         "title": "Tier 2",
         "questRequirements": 14,
-        "rewards": "A T-shirt, Cap, and Tote Bag, Stickers and Backpack",
+        "rewards": "A T-shirt, laptop stand, sling bag, water bottle and sticker",
         "rewardsUrl": "./assets/tier_two.jpeg"
     }
 ]

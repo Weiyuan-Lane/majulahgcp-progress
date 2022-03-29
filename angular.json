@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "majulahgcp-progress"
+  "defaultProject": "majulahgcp-progress",
+  "cli": {
+    "analytics": false
+  }
 }
